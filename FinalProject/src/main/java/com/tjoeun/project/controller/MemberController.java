@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tjoeun.project.memberDTO.MemberDTO;
+//import com.tjoeun.project.memberDTO.MemberDTO;
 import com.tjoeun.project.memberService.MemberService;
 import com.tjoeun.project.memberVO.MemberVO;
 
@@ -48,13 +48,13 @@ public class MemberController {
 	}
 	
 	
-	 @PostMapping("/")
-	  public ResponseEntity<MemberDTO> insertMember(@RequestBody MemberDTO memberDTO) {
-	    MemberVO memberVO = MemberDTO.toMemberVO(memberDTO);
-	    MemberVO insertedMember = memberService.insertMember(memberVO);
-	    MemberDTO insertedMemberDTO = new MemberDTO(insertedMember);
-	    return new ResponseEntity<>(insertedMemberDTO, HttpStatus.CREATED);
-	  }
+//	 @PostMapping("/")
+//	  public ResponseEntity<MemberDTO> insertMember(@RequestBody MemberDTO memberDTO) {
+//	    MemberVO memberVO = MemberDTO.toMemberVO(memberDTO);
+//	    MemberVO insertedMember = memberService.insertMember(memberVO);
+//	    MemberDTO insertedMemberDTO = new MemberDTO(insertedMember);
+//	    return new ResponseEntity<>(insertedMemberDTO, HttpStatus.CREATED);
+//	  }
 	
 	
 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko-kr" xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
 
 	<meta charset="UTF-8">
@@ -8,16 +10,11 @@
 
 
 	<title>Insert title here</title>
-
-
-	 <!-- 외부 폰트 및 이미지 설정 -->
-	<link th:rel="preconnect" href="https://fonts.googleapis.com"/>
-	<link th:rel="preconnect" href="https://fonts.gstatic.com" />
-    <link th:rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&display=swap" />    
-    <link th:rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	
+	 
     
     <!-- 자체 CSS설정 -->
-    <link th:rel="stylesheet" href ="@{/css/main.css" >
+    <link th:href ="@{/css/main.css}" rel="stylesheet" />
 
 
 </head>
@@ -33,7 +30,7 @@
         <ul>
             <!--  HOME  -->
             <li>
-                <a href="main.do">HOME</a>
+                <a href="#">HOME</a>
             </li>
 
             <!--  ABOUT  -->
@@ -45,7 +42,7 @@
             <li>
                 <a href="#">MY CAFE</a>
                 <ul>
-                    <li><a href="./FavoriteCafe.html">즐겨찾는 카페</a></li>
+                    <li><a href="#">즐겨찾는 카페</a></li>
                     <li><a href="#">이웃 카페</a></li>
                     <li><a href="#">운영 카페</a></li>
                 </ul>
@@ -83,23 +80,23 @@
 
         <div id="login"><br>
             <div>
-            <c:if test="${not empty sess_id}">
+            <!--  th:block th:if="${#String.isNotEmpty(sess.id)}"-->
             
     			<div id = afterLogin2>
     				${sess_name} 님 환영합니다<br>
 
     				<div id="afterLogin"> 
 
-	         			<a href="MemberUpdate.do">회원정보수정</a>&nbsp; | &nbsp;
-	         			<a href="LogoutAction.do">로그아웃</a><br>
+	         			<a href="#">회원정보수정</a>&nbsp; | &nbsp;
+	         			<a href="#">로그아웃</a><br>
 						<br><br><br>
-						<a href="DeleteAction.do">회원탈퇴</a>		         			
+						<a href="#">회원탈퇴</a>		         			
          			</div>
          		</div>
-            </c:if>
+            <!--/th:block-->
            
          
-           <c:if test="${empty sess_id}">
+           <!-- th:block th:if="${#String.empty(sess_id)}"-->
             
 			<div>
             <!--  폴더 정리후 주소 /member/loginAction.jsp -->
@@ -115,19 +112,21 @@
 	                </div>
 	            </form>
 	            
+	            
+	            <!-- 
                 <c:if test="${not empty LoginError}">
                 <script>
                     alert('${LoginError}');
                 </script>
                 </c:if>
-	            
+	             -->
 	            
 	            
 	        </div>        
-			</c:if>
+			<!--  /th:block-->
 			
             </div>
-        </div>
+        </div>	
 
 
         <div id="unknown1">Unknown1<br><br><br>
