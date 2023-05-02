@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* --------------- 공통설정 --------------- */
+
+/*
+전체 패딩 마진 0
+전체 글꼴 설정
+*/
+* { 
+    padding:0;
+    margin:0;
+    font-family: 'Gamja Flower', cursive;
+	font-family: 'Gowun Dodum', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+/*
+list style =  단락 표시 제거 
+*/
+li { 
+    list-style:none;
+}
+
+
+/*
+링크 컬러
+링크표시 삭제
+*/
+a { 
+    color : black ;
+    text-decoration:none;
+    font-size: 18px;
+}
+
+
+
+/* --------------- START header --------------- */
+
+
+header {
+    border:30px;
+    width: 1000px;
+    margin: auto;    
+}
+
+
+#menu { 
+    width: 1000px;
+    height: 50px;
+    background: skyblue ;
+    color: black;
+    line-height: 50px;
+    margin: auto;
+    text-align: center;
+    text-decoration:none;
+    
+}
+
+
+    /* menu태그 자식의 ul의 자식 li를 왼쪽정렬과 넓이 200설정 */
+    #menu > ul > li {
+        float: left;
+        width: 250px;
+        position: relative;
+    }
+
+
+        #menu > ul > li > ul {
+            width: 250px;
+            display: none;
+            position: absolute;
+            background: skyblue;
+        }
+
+
+        #menu > ul > li:hover > ul {
+            display: block;
+        }
+
+        
+        #menu > ul > li > ul > li:hover {
+            background: gray;
+            transition: ease 1s;
+        }
+
+
+/* --------------- END header --------------- */
+/* --------------- START Content --------------- */
+
+#contents { /* contents 공통 설정 */
+    width: 1000px;
+    height: 850px;
+    margin: auto;
+
+}
+#updatePage{
+	width: 300px;
+	height: 850px;
+	margin: auto;
+}  
+	
+input{ /* input 설정 */
+	width:284px;
+	height:30px;
+	margin-top : 3px;
+    border: 1px solid gray;
+    font-size: 15px;
+}
+
+
+#updateform {
+	width : 300px;
+}
+
+
+/* --------------- END Content --------------- */
+/* --------------- footer --------------- */
+
+#footer {
+    width: 1000px;
+    height: 25px;
+    margin: auto;
+    line-height: 25px;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    background-color: skyblue;
+}

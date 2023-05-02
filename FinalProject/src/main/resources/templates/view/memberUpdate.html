@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<title>Main</title>
+
+
+	 <!-- 외부 폰트 및 이미지 설정 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Dodum&display=swap" />    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <!-- 자체 CSS설정 -->
+    <link rel="stylesheet" href ="${pageContext.request.contextPath}/css/memberUpdate.css" >
+
+
+</head>
+<body>
+
+
+ <!--  TOP MENU  -->
+	<header>		
+			<span class="material-symbols-outlined">quiet_time</span>MAVER
+	</header>
+	<div id="menu">
+        <ul>
+            <!--  HOME  -->
+            <li>
+                <a href="main.do">HOME</a>
+            </li>
+
+            <!--  ABOUT  -->
+            <li>
+                <a href="#">ABOUT</a>
+            </li>
+
+            <!--  Unknown  -->
+            <li>
+                <a href="#">MY CAFE</a>
+                <ul>
+                    <li><a href="./FavoriteCafe.html">즐겨찾는 카페</a></li>
+                    <li><a href="#">이웃 카페</a></li>
+                    <li><a href="#">운영 카페</a></li>
+                </ul>
+            </li>
+
+            <!--  Board  -->
+            <li>
+                <a href="#">BOARD</a>
+                <ul>
+                    <li><a href="#">NOTICE</a></li>
+                    <li><a href="#">FREEBOARD</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </li>
+            
+            <!--  LOGIN  -->
+
+        </ul>
+    </div> <!-- END 'TOP MENU'-->
+        <!--  CONTENTS  -->
+        
+          
+        
+        
+        
+    <div id="contents">
+    
+	    <div id="updatePage">
+	    
+	   
+       
+	    <c:if test="${not empty sess_id}">
+		    <form id="updateform" action="MemberUpdateAction.do" method="post">
+		    <br><br>
+	            <h3 align=center>*** 회원정보수정 ***</h3><br>
+				
+				아이디 <br>
+				 <input type="text" id="id" name="id" value="${sess_id}" readonly="readonly" > <br><br>
+				
+				 비밀번호<br>
+	            <input type='password' name="pw" value="sess_pw"/> <br><br>
+	            
+				이름<br>
+				<input type="text" name="name" value="${sess_name}" readonly="readonly" > <br><br>
+				
+				
+					
+				 성별  <br>
+				<input type="text" name="gender" value="${sess_gender}" readonly="readonly" > <br><br>
+				
+				이메일 <br>
+	            <input type='email' id="email" name="email" value="${sess_email}" ><br><br>
+	
+	            전화번호 <br>
+	            <input type='tel' id="mobile" maxlength="11" placeholder="-제외" name="mobile" value="${sess_mobile}"> <br><br>
+	            주소 <br>
+	            <select title="address1" >
+	                    <option value="선택하세요">선택하세요</option>
+	                    <option value="서울특별시">서울특별시</option>
+	                    <option value="인천광역시">인천광역시</option>
+	                    <option value="부산광역시">부산광역시</option>
+	            </select><br><br>
+	            주소 <br>
+	            <input id="address2" type='text' name="address1" value="${sess_address1}">
+	            <br><br>
+	            <input type='hidden' name="birthday" value="${sess_birthday}"> 
+	            
+	           <input type="submit" value="회원정보수정" />
+            </form>
+	       
+	       	
+            
+    		</c:if>    
+    	
+
+       	    <c:if test="${empty UpdateError}">
+   
+	            <script>
+	                alert('${UpdateError}');
+	            </script>
+	            
+      		</c:if>
+ <!-- 
+ 	    	<c:if test="${not empty sess_id}">
+    	    	<div>
+        	    	${sess_name} 님의 회원정보가 수정되었습니다<br> 
+           		 	<a href="main.do">메인페이지로</a><br>
+        		</div>
+    		</c:if>
+  -->
+     		
+        
+        </div>
+    </div>
+
+    
+    <!--  END 'CONTENTS'  -->
+    
+    <!--  FOOTER  -->
+    <div id="footer">
+        하아아아아단!!!!
+
+    </div> <!--  END 'FOOTER'  -->
+
+
+</body>
+</html>

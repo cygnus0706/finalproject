@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Gamja Flower', cursive;
+	font-family: 'Gowun Dodum', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+/* --------------- 공통설정 --------------- */
+* { 
+    padding:0;margin:0;
+}
+
+
+header {
+	border:30px;
+    margin: auto;
+    /* background: yellow;
+ */ width: 1000px;
+    margin:auto;
+}
+
+li { 
+    list-style:none;
+}
+
+a { 
+    color : black;
+    text-decoration:none;
+    font-size: 18px;
+}
+
+input {
+    width:400px;
+    height:30px;
+    margin : 3px;
+    font-size: 20px;
+  }
+
+select {
+    width:150px;
+    height:30px;
+    margin : 3px;
+    font-size: 20px;
+}
+
+/* --------------- header --------------- */
+/* 글자크기를 16px 맑은 고딕 굵게하고 width넓이 1000, 높이 50만큼 배경색은 #ccc, 글자색은 검정색, 라인높이50px
+menu박스 가운데정렬, 글자가운데 정렬 */
+#menu { 
+    width: 1000px;
+    height: 50px;
+    background: skyblue ;
+    color: black;
+    line-height: 50px;
+    margin: auto;
+    text-align: center;
+    text-decoration:none;
+    
+}
+    /* menu태그 자식의 ul의 자식 li를 왼쪽정렬과 넓이 200px;설정 */
+    #menu > ul > li {
+        float: left;
+        width: 250px;
+        position: relative;
+    }
+        #menu > ul > li > ul {
+            width: 250px;
+            display: none;
+            position: absolute;
+            background: skyblue;
+        }
+
+        #menu > ul > li:hover > ul {
+            display: block;
+        }
+
+        #menu > ul > li > ul > li:hover {
+            background: gray;
+            transition: ease 1s;
+        }
+/* --------contents-------- */
+
+
+#contents { 
+    width: 1000px;
+    height: 880px;
+    margin: auto;
+
+}
+
+
+
+h3 {
+	margin: auto;
+    text-align: center;
+}
+
+form {
+	width: 1000px;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+}
+
+#beforeFindID {
+	
+	padding-top : 200px;
+}
+#FindIDForm > div {
+	
+	text-align : right ;
+}
+
+
+/* #phoneNo.input_phone {
+	font-size: 5px;
+} */
+/* placeholder {
+	font-size: 5px;
+} */
+/* --------------- footer --------------- */
+
+#footer {
+    width: 1000px;
+    height: 25px;
+    margin: auto;
+    line-height: 25px;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    background-color: skyblue;
+}
+
+
+        
