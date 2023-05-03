@@ -3,6 +3,7 @@ package com.tjoeun.project.memberService;
 import java.util.Optional;
 
 import org.apache.ibatis.javassist.compiler.ast.Member;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -110,6 +111,18 @@ public class MemberService {
 		
 		return memberRepository.findById(id);
 		
+	}
+
+
+	
+	public boolean login(String id, String pw) {
+
+		return memberRepository.findByIdAndPw(id, pw);
+	}
+
+
+	public MemberVO getMember(String id) {
+	    return memberRepository.findById(id).orElse(null);
 	}
 	
 }

@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 // @Repository
 public interface MemberRepository extends JpaRepository<MemberVO , String> {
 
+	boolean findByIdAndPw(String id, String pw);
+
 
 
 	

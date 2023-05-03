@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-	<title>Insert title here</title>
+	<title>MainPage</title>
 	
 	 
     
@@ -79,54 +79,36 @@
 
 
         <div id="login"><br>
-            <div>
-            <!--  th:block th:if="${#String.isNotEmpty(sess.id)}"-->
-            
-    			<div id = afterLogin2>
-    				${sess_name} 님 환영합니다<br>
 
-    				<div id="afterLogin"> 
-
-	         			<a href="#">회원정보수정</a>&nbsp; | &nbsp;
-	         			<a href="#">로그아웃</a><br>
-						<br><br><br>
-						<a href="#">회원탈퇴</a>		         			
-         			</div>
-         		</div>
-            <!--/th:block-->
-           
-         
-           <!-- th:block th:if="${#String.empty(sess_id)}"-->
+        	<div th:switch="${sess}">
+        	
+			<div th:case="${sess != null}">
+			    <div id="afterLogin2">
+			    <span th:text="${sess.name} + ' 님 환영합니다'"></span><br>
+				    <div id="afterLogin">
+			        <a href="#">회원정보수정</a> | <a href="#" th:href="@{/logout}">로그아웃</a><br>
+			        <br><br><br>
+			        <a href="#">회원탈퇴</a>
+				    </div>
+			    </div>
+			</div>
+			<div th:case="${sess == null}">
+			    <form name="Login" action="LoginAction" method="post">
+			      아이디 : <input id="id" name="id" type='text' /> <br>
+			      패스워드 : <input id="pw" name="pw" type='password' /> <br>
+			      <input type="submit" id="loginBTN" name="LoginAction" value="로그인" /> <br>
+			      <div>
+			        <a th:href="@{/findID}">아이디 찾기</a> &nbsp; |
+			        <a th:href="@{/findPW}">비밀번호 찾기</a> &nbsp; |
+			        <a th:href="@{/register}">회원가입</a><br>
+			      </div>
+			    </form>
+			  </div>
+			</div>
+        	
+        	
             
-			<div>
-            <!--  폴더 정리후 주소 /member/loginAction.jsp -->
-	            <form action="LoginAction.do" method="post" id="form">
-	            
-	                아이디 : <input id="id" name="id" type='text'/> <br>
-	                패스워드 : <input id="pw" name="pw" type='password' /> <br>
-	                <input type="submit" id="loginBTN" name="LoginAction" value="로그인"/> <br>                   
-					<div>
-		           		<a href="FindID.do">아이디 찾기</a> &nbsp; |		
-					    <a href="FindPW.do">비밀번호 찾기</a> &nbsp; |
-		                <a href="RegisterPage.do">회원가입</a><br>
-	                </div>
-	            </form>
-	            
-	            
-	            <!-- 
-                <c:if test="${not empty LoginError}">
-                <script>
-                    alert('${LoginError}');
-                </script>
-                </c:if>
-	             -->
-	            
-	            
-	        </div>        
-			<!--  /th:block-->
-			
-            </div>
-        </div>	
+        </div>	<!-- //login -->
 
 
         <div id="unknown1">Unknown1<br><br><br>
